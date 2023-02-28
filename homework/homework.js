@@ -1,44 +1,64 @@
 //Escriba aquí su código JavaScript:
+
 const juego = () => {
-    alert("Empieza el juego!!!");
 
     let cantidadDeIntentos = 3;
 
-    const numAleatorio = Math.floor((Math.random() * 3) + 1);
+    const numAleatorio = Math.floor((Math.random() * 10) + 1);
     console.log(numAleatorio);
+    
+        //const numElegido = prompt(`Adivine el núm del 1 al 10 tiene ${cantidadDeIntentos} intentos más!`);
 
-    do {
+        const numElegido = myFunction();
 
-        const numElegido = prompt(`Adivine el núm del 1 al 10 tiene ${cantidadDeIntentos} intentos más!`);
+        escribe("Habla marica!!!");
 
         if (numElegido > numAleatorio) {
 
             cantidadDeIntentos--;
 
-            alert(`El número elegido ${numElegido} es menor al número a  adivinar Cantidad de
+            /*alert(`El número elegido ${numElegido} es menor al número a  adivinar Cantidad de
         
-        intentos restantes ${cantidadDeIntentos}`);
-
+        intentos restantes ${cantidadDeIntentos}`);*/
+            
+        myFunction(`El número elegido ${numElegido} es mayor al número a  adivinar Cantidad de
+        
+            intentos restantes ${cantidadDeIntentos}`);
 
 
         } else if (numElegido < numAleatorio) {
 
             cantidadDeIntentos--;
 
-            alert(`El número elegido ${numElegido} es mayor al número a  adivinar de
+            /*alert(`El número elegido ${numElegido} es mayor al número a  adivinar de
         
+        intentos restantes ${cantidadDeIntentos}`);*/
+
+        myFunction(`El número elegido ${numElegido} es menor al número a  adivinar Cantidad de
         intentos restantes ${cantidadDeIntentos}`);
 
         } else {
 
-            alert("Acertó, es un verdadero genio!!!");
-
-            break;
+            myFunction("Acertó, es un verdadero genio!!!");
 
         }
 
-    } while (cantidadDeIntentos > 0);
+    }; 
 
-    alert("Game over");
+    myFunction("Game over");
+
+function myFunction() {
+
+    var x = document.getElementById("num").value;
+
+    document.getElementById("parrafo").innerHTML = x;
+
+    return x;
+
+}
+
+function escribe(texto){
+
+    document.getElementById("parrafo").innerHTML = texto;
 
 }
