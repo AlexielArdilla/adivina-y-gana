@@ -3,33 +3,42 @@
 const juego = () => {
 
     let cantidadDeIntentos = 3;
-
+    let flagAdivino = false;
     const numAleatorio = Math.floor((Math.random() * 10) + 1);
-    console.log(numAleatorio);
 
-    const numElegido = prompt(`Adivine el núm del 1 al 10 tiene ${cantidadDeIntentos} intentos más!`);
+    while (cantidadDeIntentos > 0 && flagAdivino == false) {
 
-    if (numElegido < numAleatorio) {
+        console.log(numAleatorio);
 
-        cantidadDeIntentos--;
+        const numElegido = prompt(`Adivine el núm del 1 al 10 tiene ${cantidadDeIntentos} intentos!`);
 
-        alert(`El número elegido ${numElegido} es menor al número a adivinar. 
-        
-        Cantidad de intentos restantes ${cantidadDeIntentos}`);
-    
-    } else if (numElegido > numAleatorio) {
+        if (numElegido < numAleatorio) {
 
-        alert(`El número elegido ${numElegido} es mayor al número a  adivinar 
+            cantidadDeIntentos--;
+
+            alert(`El número elegido ${numElegido} es menor al número a adivinar. 
         
         Cantidad de intentos restantes ${cantidadDeIntentos}`);
 
-    } else {
+        } else if (numElegido > numAleatorio) {
 
-        alert("Acertó, es un verdadero genio!!!");
+            cantidadDeIntentos--;
+
+            alert(`El número elegido ${numElegido} es mayor al número a  adivinar 
+        
+        Cantidad de intentos restantes ${cantidadDeIntentos}`);
+
+        } else {
+
+            alert("Acertó, es un verdadero genio!!!");
+
+            flagAdivino = true;
+
+        }
 
     }
-
+    alert("Game over");
 };
 
-alert("Game over");
+
 
